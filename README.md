@@ -1,16 +1,43 @@
-# openweather
+Lab 1 · Integración segura de una API REST (NewsAPI + Flutter)
+Descripción
+Este proyecto es la solución al Lab 1: Consumir una API REST con manejo de secretos.
 
-A new Flutter project.
+En lugar de usar OpenWeatherMap, se utiliza NewsAPI (permitido en el enunciado: clima u noticias).
+La app está hecha en Flutter y consume la API de noticias de forma segura, utilizando .env para la API key y mostrando una UI con manejo de errores y distintos estados.
 
-## Getting Started
+Objetivo del lab
+Integrar de manera segura una API REST (clima u noticias) con:
 
-This project is a starting point for a Flutter application.
+Manejo de secretos
+Manejo de errores
+Validación de entrada
+Buenas prácticas (timeouts, sanitización, etc.)
+En este proyecto se cumple:
 
-A few resources to get you started if this is your first Flutter project:
+✅ Consumo de NewsAPI (GET /v2/everything)
+✅ Pantalla con estados: vacío / cargando / error / datos
+✅ Manejo de secretos con .env + flutter_dotenv
+✅ Manejo de errores HTTP (401, 429, otros), timeouts y errores de red
+✅ Validación y sanitización de entrada/salida
+✅ Buenas prácticas: retry exponencial y cache defensiva
+✅ Pruebas en emulador y dispositivo físico
+Tecnologías y dependencias
+Flutter
+Dart
+Paquetes:
+http
+flutter_dotenv
+En pubspec.yaml:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+dependencies:
+  flutter:
+    sdk: flutter
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  http: ^1.2.0
+  flutter_dotenv: ^5.1.0
+  cupertino_icons: ^1.0.8
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
